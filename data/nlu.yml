@@ -1,0 +1,65 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - 你好
+    - hello
+    - hi
+    - 嗨！
+
+- intent: goodbye
+  examples: |
+    - 拜拜
+
+- intent: affirm
+  examples: |
+    - 好的
+    - 知道了
+
+- intent: deny
+  examples: |
+    - 不
+    - 我拒绝
+
+- intent: mood_great
+  examples: |
+    - 完美
+    - 太棒了
+
+- intent: mood_unhappy
+  examples: |
+    - 你这么说我就不开心了
+    - 哼
+    - 呵呵
+
+- intent: bot_challenge
+  examples: |
+    - 你是谁
+    - 你是个机器人吗？
+
+- intent: query
+  examples: |
+    - ?
+    - 为什么？
+    - 怎么回事？
+    - 想不到
+
+- intent: for_fun
+  examples: |
+    - 有趣的
+    - 讲个笑话
+    - 无聊了
+    - 你怎么这么无聊
+    - 你太无聊了
+    - 你都能干什么
+
+- intent: happy
+  examples: |
+    - 哈哈
+    - 笑哭
+
+- intent: negative
+  examples: |
+    - 什么玩应啊
+    - 你有病吧

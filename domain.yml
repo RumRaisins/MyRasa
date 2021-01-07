@@ -1,0 +1,27 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- for_fun
+- happy
+- query
+- negative
+responses:
+  utter_for_fun:
+  - text: 我给你讲个笑话吧
+  utter_jok1_1:
+  - text: 请问冰最想干的是什么？
+  utter_jok1_2:
+  - text: 他想退伍！
+  utter_jok1_3:
+  - text: 因为他当“冰（兵）”太久啦！
+  utter_happy:
+  - text: 怎么样！ 我很棒吧！
+  - text: 你能这么开心，我也很高兴。
