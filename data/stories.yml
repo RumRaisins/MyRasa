@@ -2,7 +2,18 @@ version: "2.0"
 
 stories:
 
-- story: for_fun
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_answer_greet
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_answer_goodbye
+
+
+- story: for_fun_1
   steps:
     - intent: for_fun
     - action: utter_for_fun
@@ -12,6 +23,15 @@ stories:
     - action: utter_jok1_2
     - intent: query
     - action: utter_jok1_3
+    - intent: happy
+    - action: utter_happy
+
+- story: for_fun_2
+  steps:
+    - intent: for_fun
+    - action: utter_for_fun
+    - intent: affirm
+    - action: utter_jok2
     - intent: happy
     - action: utter_happy
 

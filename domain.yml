@@ -14,6 +14,11 @@ intents:
 - query
 - negative
 responses:
+  utter_answer_greet:
+  - text: 嘿！
+  utter_answer_goodbye:
+  - text: 回头见（如果我可以回头的话）。
+
   utter_for_fun:
   - text: 我给你讲个笑话吧
   utter_jok1_1:
@@ -25,3 +30,5 @@ responses:
   utter_happy:
   - text: 怎么样！ 我很棒吧！
   - text: 你能这么开心，我也很高兴。
+  utter_jok2:
+  - text : 你们晚上骑车一定要小心，如果看到一个人和一只狗，一定不要从中间穿过去，因为它们中间可能还有一条链子。。。
