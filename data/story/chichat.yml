@@ -1,0 +1,43 @@
+version: "2.0"
+
+stories:
+
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_answer_greet
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_answer_goodbye
+
+- story: what to do
+  steps:
+    - intent: whattodo
+    - action: utter_whattodo
+
+- story: for_fun_1
+  steps:
+    - intent: for_fun
+    - action: utter_for_fun
+    - intent: affirm
+    - action: utter_jok1_1
+    - intent: query
+    - action: utter_jok1_2
+    - intent: query
+    - action: utter_jok1_3
+    - intent: mood_happy
+    - action: utter_mood_happy
+
+- story: for_fun_2
+  steps:
+    - intent: for_fun
+    - action: utter_for_fun
+    - intent: affirm
+    - action: utter_jok2
+    - intent: mood_happy
+    - action: utter_mood_happy
+
+
+

@@ -6,19 +6,43 @@ intents:
 - goodbye
 - affirm
 - deny
-- mood_great
-- mood_unhappy
 - bot_challenge
 - for_fun
-- happy
 - query
 - negative
+- whoamI
+- whattodo
+- thanks
+- chitchat
+- mood_happy
+- mood_unhappy
+- mood_great
+- request_weather
+entities:
+- date_time
+- city
+- data_time
+slots:
+  date_time:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  city:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+  requested_slot:
+    type: text
+    influence_conversation: false
 responses:
   utter_answer_greet:
   - text: 嘿！
   utter_answer_goodbye:
   - text: 回头见（如果我可以回头的话）。
-
+  utter_chitchat:
+  - text: 哈哈
+  - text: 呃呃呃呃呃
+  - text: 您这是在尬聊吗？
   utter_for_fun:
   - text: 我给你讲个笑话吧
   utter_jok1_1:
@@ -27,8 +51,32 @@ responses:
   - text: 他想退伍！
   utter_jok1_3:
   - text: 因为他当“冰（兵）”太久啦！
-  utter_happy:
+  utter_mood_happy:
   - text: 怎么样！ 我很棒吧！
   - text: 你能这么开心，我也很高兴。
   utter_jok2:
-  - text : 你们晚上骑车一定要小心，如果看到一个人和一只狗，一定不要从中间穿过去，因为它们中间可能还有一条链子。。。
+  - text: 你们晚上骑车一定要小心，如果看到一个人和一只狗，一定不要从中间穿过去，因为它们中间可能还有一条链子。。。
+  utter_request_weather:
+  - text: 是想问我天气吗？ 直接告诉我城市和时间吧！
+  - text: 来吧！ 告诉我想知道的城市和时间！只告诉我一个我可猜不出来哦！
+  utter_ask_continue:
+  - text: 怎么了？ 还要继续查询吗？
+  utter_default:
+  - text: 没听懂，请换种说法吧~
+  - text: 聊点别的吧， 想试试其他功能吗？
+  utter_whattodo:
+    - text: 我能干的可少啦！目前只有查询天气。
+actions:
+- utter_answer_greet
+- utter_answer_goodbye
+- utter_chitchat
+- utter_for_fun
+- utter_jok1_1
+- utter_jok1_2
+- utter_jok1_3
+- utter_mood_happy
+- utter_jok2
+- weather_form
+- utter_default
+forms:
+  weather_form: {}

@@ -1,0 +1,136 @@
+version: "2.0"
+
+stories:
+
+- story: perfect path
+  steps:
+    - intent: request_weather
+      entities:
+        - date_time: 明天
+        - city: 北京
+    - action: weather_form
+    - active_loop: weather_form
+    - slot_was_set:
+        - date_time: 明天
+    - slot_was_set:
+        - city: 北京
+    - active_loop: null
+
+
+- story: happy path
+  steps:
+    - intent: request_weather
+    - action: utter_request_weather
+    - action: weather_form
+    - active_loop: weather_form
+    - intent: request_weather
+      entities:
+        - date_time: 明天
+        - city: 北京
+    - slot_was_set:
+        - date_time: 明天
+    - slot_was_set:
+        - city: 北京
+    - active_loop: null
+
+- story: happy path + 时间
+  steps:
+    - intent: request_weather
+      entities:
+        - date_time: 明天
+    - action: utter_request_weather
+    - action: weather_form
+    - active_loop: weather_form
+    - intent: request_weather
+      entities:
+        - date_time: 明天
+        - city: 北京
+    - slot_was_set:
+        - date_time: 明天
+    - slot_was_set:
+        - city: 北京
+    - active_loop: null
+
+- story: happy path + 地点
+  steps:
+    - intent: request_weather
+      entities:
+        - city: 北京
+    - action: utter_request_weather
+    - action: weather_form
+    - active_loop: weather_form
+    - intent: request_weather
+      entities:
+        - date_time: 明天
+        - city: 北京
+    - slot_was_set:
+        - date_time: 明天
+    - slot_was_set:
+        - city: 北京
+    - active_loop: null
+
+
+
+- story: wrong path
+  steps:
+    - intent: request_weather
+    - action: utter_request_weather
+    - action: weather_form
+    - active_loop: weather_form
+    - or:
+        - intent: mood_unhappy
+        - intent: chitchat
+        - intent: stop
+    - action: action_deactivate_loop
+    - active_loop: null
+    - action: utter_default
+
+
+
+- story: unhappy path
+  steps:
+  - intent: request_weather
+  - action: utter_request_weather
+  - action: weather_form
+  - active_loop: weather_form
+  - or :
+    - intent: mood_unhappy
+    - intent: chitchat
+    - intent: stop
+  - action: utter_ask_continue
+  - checkpoint: check_asked_continue
+
+- story: unhappy path continue
+  steps:
+  - checkpoint: check_asked_continue
+  - intent: affirm
+  - action: utter_request_weather
+  - intent: request_weather
+    entities:
+      - date_time: 明天
+      - city: 北京
+  - action: weather_form
+  - active_loop: weather_form
+  - slot_was_set:
+      - date_time: 明天
+  - slot_was_set:
+      - city: 北京
+  - active_loop: null
+
+
+- story: unhappy path stop
+  steps:
+  - checkpoint: check_asked_continue
+  - or:
+      - intent: mood_unhappy
+      - intent: chitchat
+      - intent: stop
+      - intent: deny
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_default
+
+
+
+
+
